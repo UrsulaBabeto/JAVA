@@ -1,0 +1,90 @@
+/*
+ Crie uma classe para representar uma Pessoa com os atributos privados de nome, 
+data de nascimento e altura. Crie os métodos públicos necessários para getters 
+e setters e também um método para imprimir todos dados de uma pessoa. 
+Crie um método para calcular a idade da pessoa.
+ */
+package POO1;
+
+import java.util.Scanner;
+import java.util.Calendar;
+
+public class App {
+
+    public static void main(String[] args) {
+
+        Scanner leitor = new Scanner(System.in);
+        Pessoa objetoPessoa = new Pessoa();
+
+        System.out.println("Nome:");
+        objetoPessoa.setNome(leitor.next());
+        System.out.println("Ano de Nascimento:");
+        objetoPessoa.setAnoNascimento(leitor.nextInt());
+        System.out.println("Altura:");
+        objetoPessoa.setAltura(leitor.nextFloat());
+        
+        System.out.println(" Nome: "+objetoPessoa.nome()+ ""
+                + "\n Idade: " +objetoPessoa.Idade()+" anos. "
+                + "\n Altura: "+objetoPessoa.altura()+"mts.");
+
+    }
+}
+
+---------------------------
+
+package POO1;
+
+import java.util.Calendar;
+
+public class Pessoa {
+
+    private String nome;
+    private int anoNascimento;
+    private int anoAtual;
+    private float altura;
+
+    public int Idade() {
+
+        Calendar data = Calendar.getInstance();
+        anoAtual = data.get(Calendar.YEAR);
+        return anoAtual - anoNascimento;
+    }
+     public String nome() {
+     return nome;
+     }
+      public float altura() {
+      return altura;}
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getAnoNascimento() {
+        return anoNascimento;
+    }
+
+    public void setAnoNascimento(int anoNascimento) {
+        this.anoNascimento = anoNascimento;
+    }
+
+    public int getAnoAtual() {
+        return anoAtual;
+    }
+
+    public void setAnoAtual(int anoAtual) {
+        this.anoAtual = anoAtual;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+}
+
